@@ -17,10 +17,15 @@ public class EditUserActivity extends AppCompatActivity {
     private User user;
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EditUserActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
-
 
 
         editTextEditUserName = findViewById(R.id.editTextEditUserName);
@@ -36,6 +41,7 @@ public class EditUserActivity extends AppCompatActivity {
 
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 user.setUserName(editTextEditUserName.getText().toString());
@@ -43,11 +49,9 @@ public class EditUserActivity extends AppCompatActivity {
                 user.setPhone(editTextEditPhone.getText().toString());
                 Users users = new Users(EditUserActivity.this);
                 users.updateUser(user);
-                onBackPressed(); // искусственное нажатие "назад"
-                }
+
+                onBackPressed(); // искусственное нажатие "назад"/ т.к. переопределили этот метод, при возвращении назад сработает intent
+            }
         });
     }
-
-
 }
-
