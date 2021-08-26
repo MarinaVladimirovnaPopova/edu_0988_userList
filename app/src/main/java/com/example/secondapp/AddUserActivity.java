@@ -6,43 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AddUserActivity extends AppCompatActivity {
-    EditText editTextName;
-    EditText editTextLastName;
+    EditText editTextUserName;
+    EditText editTextUserLastName;
     EditText editTextPhone;
-
-
-
-    Button buttonAdd;
-    Button buttonDel;
+    Button formAddUserBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
-
-        editTextName = findViewById(R.id.editTextName);
-        editTextLastName = findViewById(R.id.editTextLastName);
+        editTextUserName = findViewById(R.id.editTextUserName);
+        editTextUserLastName = findViewById(R.id.editTextUserLastName);
         editTextPhone = findViewById(R.id.editTextPhone);
-        buttonAdd = findViewById(R.id.buttonAdd);
-        buttonDel = findViewById(R.id.buttonDel);
+        formAddUserBtn = findViewById(R.id.formAddUserBtn);
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
+
+        formAddUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AddUserActivity.this, "Скоро всё будет...", Toast.LENGTH_SHORT).show();
-
+                User user = new User();
+                user.setUserName(editTextUserName.getText().toString());
+                user.setUserLastName(editTextUserLastName.getText().toString());
+                user.setPhone(editTextPhone.getText().toString());
+                Users users = new Users(AddUserActivity.this);
+                users.addUser(user);
+                onBackPressed(); // искусственное нажатие "назад"
             }
         });
 
-
-        buttonDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AddUserActivity.this, "Скоро всё будет...", Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 }

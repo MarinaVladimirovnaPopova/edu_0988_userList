@@ -7,10 +7,14 @@ public class User implements Serializable {
     private String userName;
     private String userLastName;
     private String phone;
-    private UUID uuid;  //идентификатор, генерируемый самой системой
+    private UUID uuid;  //идентификатор, генерируемый самой системой относительно текущего времени
+
+    public User(UUID uuid){
+        this.uuid = uuid;
+    }
 
     public User(){
-        this.uuid = UUID.randomUUID();//встроенная функция
+        this.uuid = UUID.randomUUID();
     }
 
     public String getUserName() {

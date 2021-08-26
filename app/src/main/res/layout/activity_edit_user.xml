@@ -4,47 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AddUserActivity">
+    android:orientation="vertical">
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Добавление пользователя"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:gravity="center"/>
-    <EditText
-        android:id="@+id/editTextUserName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Имя"
-        android:layout_marginBottom="10dp"/>
-    <EditText
-        android:id="@+id/editTextUserLastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Фамилия"
-        android:layout_marginBottom="10dp"/>
+        android:background="#B8F3BB"
+        android:gravity="center"
+        android:text="Редактирование пользователя"
+        android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextEditUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="редактировать имя"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/editTextEditUserLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="редактировать фамилию"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/editTextEditPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:hint="Телефон"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="20sp"
+        android:hint="редактировать номер телефона" />
+
 
     <Button
-        android:id="@+id/formAddUserBtn"
-        android:layout_width="wrap_content"
+        android:id="@+id/saveBtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="+ добавить" />
-
+        android:background="#46A14A"
+        android:text="Сохранить"
+        android:textSize="20sp" />
 </LinearLayout>

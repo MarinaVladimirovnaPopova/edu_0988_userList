@@ -8,14 +8,31 @@
     tools:context=".UserInfoActivity">
 
     <TextView
+
+        android:id="@+id/userNameTextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/userNameTextView" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="24sp" />
 
     <TextView
+        android:id="@+id/phoneTextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/phoneTextView" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/editUserDataBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Редактировать" />
+    <Button
+        android:id="@+id/deleteUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Удалить пользователя"/>
 
 
 
