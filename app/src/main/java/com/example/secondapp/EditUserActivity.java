@@ -48,10 +48,6 @@ public class EditUserActivity extends AppCompatActivity {
         });
     }
 
-/*    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(EditUserActivity.this, MainActivity.class);//вернёмся сразу в главную активность и все данные о пользователях будут обновлены
-        startActivity(intent);
-    }*/
+
 }
 

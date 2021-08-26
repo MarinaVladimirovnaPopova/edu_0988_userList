@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <Button
+        android:id="@+id/addUserBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+ добавить пользователя"
-        android:id="@+id/addUserBtn"/>
+        android:background="#04E6D1"
+        android:text="+ добавить пользователя" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

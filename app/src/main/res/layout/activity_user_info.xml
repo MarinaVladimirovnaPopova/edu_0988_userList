@@ -27,12 +27,15 @@
         android:id="@+id/editUserDataBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#46A14A"
         android:text="Редактировать" />
+
     <Button
         android:id="@+id/deleteUserBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Удалить пользователя"/>
+        android:background="#FA4C4C"
+        android:text="Удалить пользователя" />
 
 
 

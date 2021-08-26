@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AddUserActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Добавление пользователя"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:gravity="center"/>
+        android:background="#53F8E9"
+        android:gravity="center"
+        android:text="Добавление пользователя"
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/editTextUserName"
         android:layout_width="match_parent"
@@ -42,9 +44,10 @@
 
     <Button
         android:id="@+id/formAddUserBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="#01C8B6"
         android:text="+ добавить" />
 
 </LinearLayout>
