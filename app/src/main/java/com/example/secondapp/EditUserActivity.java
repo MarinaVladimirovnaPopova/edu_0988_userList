@@ -16,11 +16,6 @@ public class EditUserActivity extends AppCompatActivity {
     Button saveBtn;
     private User user;
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(EditUserActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +44,9 @@ public class EditUserActivity extends AppCompatActivity {
                 user.setPhone(editTextEditPhone.getText().toString());
                 Users users = new Users(EditUserActivity.this);
                 users.updateUser(user);
+                Intent intent = new Intent(EditUserActivity.this, MainActivity.class);
+                startActivity(intent);
 
-                onBackPressed(); // искусственное нажатие "назад"/ т.к. переопределили этот метод, при возвращении назад сработает intent
             }
         });
     }
