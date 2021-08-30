@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.secondapp.database.UserBaseHelper;
 import com.example.secondapp.database.UserDbSchema;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -20,24 +24,56 @@ public class Users {
         this.context = context.getApplicationContext();
         this.database = new UserBaseHelper(this.context).getWritableDatabase();
     }
+/*===========================================*/
+    public void addUser(User user) {
+//        ContentValues values = getContentValues(user);
+//        database.insert(UserDbSchema.UserTable.NAME, null, values);
 
-    public void addUser(User user){
-        ContentValues values = getContentValues(user);
-        database.insert(UserDbSchema.UserTable.NAME, null, values);
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("http://0988.vozhzhaev.ru/handlerAddUser.php");
+                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream is = urlConnection.getInputStream();
+                    InputStreamReader reader = new InputStreamReader(is);
+                    int i;
+                    StringBuilder result = new StringBuilder();
+                    while ((i=reader.read()) != -1){
+                        result.append((char)i);
+                    }
+                    System.out.println(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        Thread t = new Thread(runnable);
+        t.start();
+
     }
 
+/*==================================*/
 
     public void updateUser(User user){
         ContentValues values = getContentValues(user);
-        database.update(UserDbSchema.UserTable.NAME, values, UserDbSchema.Cols.UUID + "='" + user.getUuid() + "'", null);
+        String stringUuid = user.getUuid().toString();
+        database.update(UserDbSchema.UserTable.NAME,
+                values,
+                UserDbSchema.Cols.UUID + "=?",
+                new String[]{stringUuid});
     }
 
 
     public void deleteUser(UUID uuid){
-        database.delete(UserDbSchema.UserTable.NAME, UserDbSchema.Cols.UUID + "='" + uuid + "'", null);
+        String stringUuid = uuid.toString();
+        database.delete(UserDbSchema.UserTable.NAME,
+                UserDbSchema.Cols.UUID + "=?",
+                new String[]{stringUuid});//встроенный метод delite
     }
 
-    private static ContentValues getContentValues(User user){
+    private  ContentValues getContentValues(User user){
         ContentValues values = new ContentValues();
         values.put(UserDbSchema.Cols.UUID, user.getUuid().toString());
         values.put(UserDbSchema.Cols.USERNAME, user.getUserName());

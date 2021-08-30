@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
-            intent.putExtra("user", user);
+            Intent intent = new Intent(MainActivity.this, UserPagerActivity.class); //вместо UserInfoActivity
+            /*intent.putExtra("user", user);*/
             startActivity(intent);
         }
     }
