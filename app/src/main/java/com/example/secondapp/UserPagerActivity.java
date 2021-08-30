@@ -15,30 +15,17 @@ public class UserPagerActivity extends AppCompatActivity {
     private ViewPager viewPager; //создали view pager
     Users users; // создали переменную users
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_pager);
         viewPager = findViewById(R.id.userViewPager); //нашли на активности вью пэйджер
-        
-        FragmentManager fragmentManager = getSupportFragmentManager();
+//
         users = new Users(UserPagerActivity.this);
-        viewPager.setAdapter(new {
-            @Override
-            public Fragment getItem(int position) {
-                User user = users.getUserList().get(position);
-                Fragment fragment = new UserInfoFragment();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("user", user);
-                fragment.setArguments(bundle);
-                return fragment;
-            }
 
-            @Override
-            public int getCount() {
-                return users.getUserList().size();
-            }
-        });
+        PagerAdapter pagerAdapter = new ViewPagerAdapter(UserPagerActivity.this, users);
+
+        viewPager.setAdapter(pagerAdapter);
     }
 }
-//UserInfoActivity
