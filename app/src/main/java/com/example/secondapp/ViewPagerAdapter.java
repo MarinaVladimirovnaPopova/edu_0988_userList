@@ -58,7 +58,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         phoneTextView.setText(user.getPhone());
 
-        /* editUserDataBtn.setOnClickListener(new View.OnClickListener() {
+        editUserDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, EditUserActivity.class);//открываем активность редактирования
@@ -72,9 +72,8 @@ public class ViewPagerAdapter extends PagerAdapter {
                 user.getUuid();
                 Users users = new Users(context);
                 users.deleteUser(user.getUuid());
-                Intent intent = new Intent(context, MainActivity.class);
             }
-        });*/
+        });
 
         container.addView(itemView);
 
