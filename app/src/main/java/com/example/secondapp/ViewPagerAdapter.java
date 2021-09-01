@@ -38,8 +38,8 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         TextView firstNameTextView;
         TextView phoneTextView;
-         Button editUserDataBtn; //создали кнопки редактирования
-         Button deleteUserBtn; //и удаления
+        Button editUserDataBtn; //создали кнопки редактирования
+        Button deleteUserBtn; //и удаления
 
 
         LayoutInflater inflater = (LayoutInflater) context
@@ -61,18 +61,18 @@ public class ViewPagerAdapter extends PagerAdapter {
         editUserDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewPagerAdapter.this, EditUserActivity.class);//открываем активность редактирования
+                Intent intent = new Intent(context, EditUserActivity.class);//открываем активность редактирования
                 intent.putExtra("user", user);
-                startActivity(intent);
+                startActivity(context,intent,null);
             }
         });
         deleteUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 user.getUuid();
-                Users users = new Users(ViewPagerAdapter.this);
+                Users users = new Users(context);
                 users.deleteUser(user.getUuid());
-                onBackPressed();
+                Intent intent = new Intent(context, MainActivity.class);
             }
         });
 

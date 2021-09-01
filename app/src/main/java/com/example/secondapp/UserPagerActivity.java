@@ -21,6 +21,7 @@ public class UserPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_pager);
         viewPager = findViewById(R.id.userViewPager); //нашли на активности вью пэйджер
+
 //
         users = new Users(UserPagerActivity.this);
 

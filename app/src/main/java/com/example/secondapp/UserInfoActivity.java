@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class UserInfoActivity extends AppCompatActivity {
     private TextView userNameTextView;
     private TextView phoneTextView;
@@ -41,7 +42,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 user.getUuid();
                 Users users = new Users(UserInfoActivity.this);
                 users.deleteUser(user.getUuid());
-                onBackPressed();
+
             }
         });
     }

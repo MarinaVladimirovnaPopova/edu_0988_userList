@@ -24,10 +24,10 @@ public class Users {
         this.context = context.getApplicationContext();
         this.database = new UserBaseHelper(this.context).getWritableDatabase();
     }
-/*===========================================*/
+
     public void addUser(User user) {
-//        ContentValues values = getContentValues(user);
-//        database.insert(UserDbSchema.UserTable.NAME, null, values);
+        ContentValues values = getContentValues(user);
+        database.insert(UserDbSchema.UserTable.NAME, null, values);
 
 
         Runnable runnable = new Runnable() {
