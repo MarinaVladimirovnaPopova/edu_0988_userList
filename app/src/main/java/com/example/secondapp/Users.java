@@ -28,30 +28,6 @@ public class Users {
     public void addUser(User user) {
         ContentValues values = getContentValues(user);
         database.insert(UserDbSchema.UserTable.NAME, null, values);
-
-
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL("http://0988.vozhzhaev.ru/handlerAddUser.php");
-                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                    InputStream is = urlConnection.getInputStream();
-                    InputStreamReader reader = new InputStreamReader(is);
-                    int i;
-                    StringBuilder result = new StringBuilder();
-                    while ((i=reader.read()) != -1){
-                        result.append((char)i);
-                    }
-                    System.out.println(result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        Thread t = new Thread(runnable);
-        t.start();
-
     }
 
 /*==================================*/

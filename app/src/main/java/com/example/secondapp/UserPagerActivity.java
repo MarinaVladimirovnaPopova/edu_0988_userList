@@ -20,13 +20,13 @@ public class UserPagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_pager);
-        viewPager = findViewById(R.id.userViewPager); //нашли на активности вью пэйджер
+        viewPager = findViewById(R.id.userViewPager);
 
-//
         users = new Users(UserPagerActivity.this);
 
         PagerAdapter pagerAdapter = new ViewPagerAdapter(UserPagerActivity.this, users);
 
         viewPager.setAdapter(pagerAdapter);
+
     }
 }

@@ -18,9 +18,11 @@ public class ViewPagerAdapter extends PagerAdapter {
     private Users users;
     private Context context;
 
+
     public ViewPagerAdapter(Context context, Users users) {
         this.users = users;
         this.context = context;
+
     }
 
     @Override
