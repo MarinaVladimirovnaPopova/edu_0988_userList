@@ -72,6 +72,8 @@ public class ViewPagerAdapter extends PagerAdapter {
                 user.getUuid();
                 Users users = new Users(context);
                 users.deleteUser(user.getUuid());
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(context,intent,null);
             }
         });
 
